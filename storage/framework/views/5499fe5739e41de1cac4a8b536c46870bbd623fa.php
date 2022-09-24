@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PARTESYSsss</title>
+    <title>PARTESYS</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -398,108 +398,52 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
-
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
 </head>
 <body class="antialiased">
-<div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    @if (Route::has('login'))
+<div
+    class="d-inline-block items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <?php if(Route::has('login')): ?>
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            <?php if(auth()->guard()->check()): ?>
+                <a href="<?php echo e(url('/home')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            <?php else: ?>
+                <a href="<?php echo e(route('login')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-            @endauth
+                <?php if(Route::has('register')): ?>
+                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
-    @endif
-
-    <div class="container">
-        <br/>
-        <h1 class="text-center">Ingresar Parte de Trabajo</h1>
-        <br/>
-
-        <form style="max-width: 50%">
-            <div id="cuadr" class="mb-3">
-                <h3>Cuadrilla ME-14</h3>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlDate1">Fecha Inicio</label>
-                <input type="date" class="form-control" id="exampleFormControlDate1" max="2022-09-30" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlHora1">Hora Inicio</label>
-                <input type="time" class="form-control" id="exampleFormControlHora1" min="08:00" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlDate2">Fecha Fin</label>
-                <input type="date" class="form-control" id="exampleFormControlDate2" max="2022-10-01" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlHora2">Hora Fin</label>
-                <input type="time" class="form-control" id="exampleFormControlHora2" required>
-            </div>
-            <div class="mb-3">
-            <label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label>
-            <div class="input-group">
-
-                <select class="form-control" id="exampleFormControlSelect2">
-                    <option>Mantenimiento Edilicio</option>
-                    <option>Comunicaciones</option>
-                    <option>Limpieza</option>
-                    <option>Mecánica Automotriz</option>
-                    <option>Construcción</option>
-                </select>
+    <?php endif; ?>
 
 
-                <button type="button" class="btn btn-outline-info">Reservar Monto</button>
-            </div>
-            </div>
+    <div class="embed-responsive-item-16by9" style="max-width: 50%; margin: 0 auto">
+        <video src="../resources/videos/PARTESYS.mp4" autoplay style="border-radius: 60%"></video>
+    </div>
+    <div class="form-group" style="margin: 0 auto; max-width: 30%; margin-top: 5%">
+        <form action="partes">
             <div class="mb-3">
-                <h4><label class="col-form-label">TAREAS</label></h4>
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="col-form-label" >Descripción</label>
-                <input class="form-control" id="descTarea">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="col-form-label" >Duración Aproximada (HS)</label>
-                <input type="number" class="form-control" id="durTarea">
+                <label for="exampleInputUser" class="form-label">Usuario</label>
+                <input class="form-control" id="exampleInputUser">
 
             </div>
             <div class="mb-3">
-                <button type="button" class="btn btn-primary" id="agregarTarea">Agregar Tarea</button>
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
-
-            <div >
-                <h4><label class="col-form-label">Tareas Agregadas</label></h4>
-            </div>
-            <div class="mb-3">
-                <ul class="list-group" id="tareasAgregadas">
-
-                </ul>
-            </div>
-
+            <span id="passwordHelpInline" class="form-text">
+                    Debe ser de un largo de 8-20 caracteres.
+                    </span>
             <br><br>
             <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Observación</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                <button type="submit" class="btn btn-primary" style="margin: 0 auto">Ingresar</button>
             </div>
-            <div class="mb-3">
-                <button type="button" class="btn btn-danger" id="agregarTarea">Confirmar Parte</button>
-            </div>
-
         </form>
 
     </div>
-
-</div>
 </div>
 </div>
 
@@ -507,27 +451,5 @@
 </div>
 </div>
 </body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/es.js"></script>
-<script type="text/javascript">
-
-    //AGREGA TAREAS A LA LISTA
-    $(document).ready(function (){
-       $('#agregarTarea').click(function (){
-           /* console.log($('#descTarea').val()+"-"+ $('#durTarea').val());*/
-            $('#tareasAgregadas').append('<div class="input-group" id="'+$('#durTarea').val()+'"><li class="list-group-item">'+$('#descTarea').val()+" - "+ $('#durTarea').val()+'HS</li><button type="button" class="btn btn-outline-danger" id="borrarTarea">X</button></div>')
-
-       });
-       $('#tareasAgregadas').on('click','#borrarTarea', function (){
-           //console.log($(this).parent());
-           $(this).parent().remove();
-       });
-    });
-</script>
-
-
 </html>
+<?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/login.blade.php ENDPATH**/ ?>
