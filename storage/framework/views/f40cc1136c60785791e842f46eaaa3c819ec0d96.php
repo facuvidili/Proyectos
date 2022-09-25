@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PARTESYS</title>
+    <title>PARTESYSsss</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -420,13 +420,24 @@
     <?php endif; ?>
 
     <div class="container">
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">PARTESYS</a>
+
+
+                <a href="../public"><button type="button" class="btn btn-secondary" id="agregarTarea" style="float: right">Cerrar Sesión</button></a>
+
+            </div>
+        </nav>
+
         <br/>
         <h1 class="text-center">Ingresar Parte de Trabajo</h1>
         <br/>
 
+
         <form style="max-width: 50%">
             <div id="cuadr" class="mb-3">
-                <h3>Cuadrilla ME-14</h3>
+                <h3>Cuadrilla 1 - Precio Hora: $1600 - Contrato: No</h3>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlDate1">Fecha Inicio</label>
@@ -445,20 +456,47 @@
                 <input type="time" class="form-control" id="exampleFormControlHora2" required>
             </div>
             <div class="mb-3">
-            <label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label>
-            <div class="input-group">
-
-                <select class="form-control" id="exampleFormControlSelect2">
-                    <option>Mantenimiento Edilicio</option>
-                    <option>Comunicaciones</option>
-                    <option>Limpieza</option>
-                    <option>Mecánica Automotriz</option>
-                    <option>Construcción</option>
-                </select>
-
-
-                <button type="button" class="btn btn-outline-info">Reservar Monto</button>
-            </div>
+            <h3><label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label></h3>
+                <div class="input-group" style="max-width: 40%">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+                <table class="table table-hover" id="tableCuad">
+                    <thead>
+                    <tr>
+                        <th scope="col">NroCuenta</th>
+                        <th scope="col">Sector</th>
+                        <th scope="col">Presupuesto</th>
+                        <th scope="col">Disponible</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1253</th>
+                        <td>Mantenimiento Edilicio</td>
+                        <td>18000000</td>
+                        <td>18000000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1467</th>
+                        <td>Limpieza</td>
+                        <td>2500000</td>
+                        <td>2500000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">18124</th>
+                        <td>Mecánica Automotriz</td>
+                        <td>12000000</td>
+                        <td>12000000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2351</th>
+                        <td>Comunicaciones</td>
+                        <td>7000000</td>
+                        <td>7000000</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="mb-3">
                 <h4><label class="col-form-label">TAREAS</label></h4>
@@ -492,8 +530,10 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
             </div>
             <div class="mb-3">
-                <button type="button" class="btn btn-danger" id="agregarTarea">Confirmar Parte</button>
+                <button type="button" class="btn btn-success" id="agregarTarea">Confirmar Parte</button>
+                <button type="button" class="btn btn-danger" id="agregarTarea">Cancelar Parte</button>
             </div>
+
 
         </form>
 
@@ -527,6 +567,11 @@
            $(this).parent().remove();
        });
     });
+
+        $('#tableCuad tbody tr').click(function() {
+        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+    });
+
 </script>
 
 

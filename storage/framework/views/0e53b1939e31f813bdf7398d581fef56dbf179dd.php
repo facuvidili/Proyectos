@@ -420,23 +420,66 @@
     <?php endif; ?>
 
     <div class="container">
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">PARTESYS</a>
+
+
+                <a href="../public"><button type="button" class="btn btn-secondary" id="agregarTarea" style="float: right">Cerrar Sesión</button></a>
+
+            </div>
+        </nav>
         <br/>
         <h1 class="text-center">Partes de Trabajo</h1>
         <br/>
 
         <div>
             <form id="idForm" action="parteForm" method="get">
-            <label for="selectCuad" class="label-default">Seleccione una Cuadrilla</label>
+                <h2><label for="selectCuad" class="label-default">Seleccione una Cuadrilla</label></h2>
+
+                    <div class="input-group" style="max-width: 40%">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    </div>
 
 
-                <select id="selectCuad" class="form-select" aria-label="Default select example">
-                    <option selected value="0">---</option>
-                    <option value="Cuadrilla ME-14">Cuadrilla ME-14</option>
-                    <option value="Cuadrilla DI-09">Cuadrilla DI-09</option>
-                    <option value="Cuadrilla PP-22">Cuadrilla PP-22</option>
-                    <option value="Cuadrilla LD-17">Cuadrilla LD-17</option>
-                    <option value="Cuadrilla ME-11">Cuadrilla ME-11</option>
-                </select>
+                
+                <table class="table table-hover" id="tableCuad">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nro</th>
+                        <th scope="col">Cant Empleados</th>
+                        <th scope="col">Precio Hora</th>
+                        <th scope="col">Contrato</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>8</td>
+                        <td>1800</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>7</td>
+                        <td>1300</td>
+                        <td>Si</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>4</td>
+                        <td>1500</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>12</td>
+                        <td>900</td>
+                        <td>No</td>
+                    </tr>
+                    </tbody>
+                </table>
 
 
         </br>
@@ -457,5 +500,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/es.js"></script>
 <script type="text/javascript" src="../resources/js/calendar.js"></script>
+<script type="text/javascript">
+        $('#tableCuad tbody tr').click(function() {
+        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+    });
+</script>
 </html>
 <?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/partes.blade.php ENDPATH**/ ?>
