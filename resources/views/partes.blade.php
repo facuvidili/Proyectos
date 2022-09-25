@@ -400,13 +400,12 @@
     </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        <div class="fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
                 <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
             @else
@@ -420,21 +419,42 @@
     @endif
 
     <div class="container">
-        <nav class="navbar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
-                <a href="../public"><button type="button" class="btn btn-secondary" id="agregarTarea" style="float: right">Cerrar Sesión</button></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Supervisor
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="../" class="dropdown-item">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
 
             </div>
         </nav>
+
+
         <br/>
         <h1 class="text-center">Partes de Trabajo</h1>
         <br/>
 
         <div>
-            <form id="idForm" action="parteForm" method="get">
+            <form id="idForm" action="partes/parteForm" method="get">
                 <h2><label for="selectCuad" class="label-default">Seleccione una Cuadrilla</label></h2>
 
                     <div class="input-group" style="max-width: 40%">
@@ -506,10 +526,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/es.js"></script>
-<script type="text/javascript" src="../resources/js/calendar.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="../../resources/js/calendar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script>$(document).ready(function (){
         $('#tableCuad tbody tr').click(function() {
-        $(this).addClass('bg-info').siblings().removeClass('bg-info');
-    });
-</script>
+            $(this).addClass('bg-info').siblings().removeClass('bg-info');
+        });
+    })</script>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PARTESYSsss</title>
+    <title>PARTESYS</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -400,8 +400,7 @@
     </style>
 
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -420,12 +419,31 @@
     <?php endif; ?>
 
     <div class="container">
-        <nav class="navbar bg-light">
+        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
-                <a href="../public"><button type="button" class="btn btn-secondary" id="agregarTarea" style="float: right">Cerrar Sesión</button></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Supervisor
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="../../" class="dropdown-item">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
 
             </div>
         </nav>
@@ -448,12 +466,16 @@
                 <input type="time" class="form-control" id="exampleFormControlHora1" min="08:00" required>
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlDate2">Fecha Fin</label>
+                <label for="exampleFormControlDate2" id="fechaFin">Fecha Fin</label>
                 <input type="date" class="form-control" id="exampleFormControlDate2" max="2022-10-01" required>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlHora2">Hora Fin</label>
                 <input type="time" class="form-control" id="exampleFormControlHora2" required>
+            </div>
+            <div class="mb-3">
+                <h4><label>Total Parte </label></h4>
+                <label id="totalParte"> $25600</label>
             </div>
             <div class="mb-3">
             <h3><label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label></h3>
@@ -553,25 +575,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/es.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
-    //AGREGA TAREAS A LA LISTA
+
     $(document).ready(function (){
+
+        //AGREGA TAREAS A LA LISTA
        $('#agregarTarea').click(function (){
            /* console.log($('#descTarea').val()+"-"+ $('#durTarea').val());*/
             $('#tareasAgregadas').append('<div class="input-group" id="'+$('#durTarea').val()+'"><li class="list-group-item">'+$('#descTarea').val()+" - "+ $('#durTarea').val()+'HS</li><button type="button" class="btn btn-outline-danger" id="borrarTarea">X</button></div>')
 
        });
-       $('#tareasAgregadas').on('click','#borrarTarea', function (){
+       //BORRA TAREAS DE LA LISTA
+        $('#tareasAgregadas').on('click','#borrarTarea', function (){
            //console.log($(this).parent());
            $(this).parent().remove();
        });
-    });
 
+        //SELECCIONA CUADRILLA
         $('#tableCuad tbody tr').click(function() {
-        $(this).addClass('bg-info').siblings().removeClass('bg-info');
+            $(this).addClass('bg-info').siblings().removeClass('bg-info');
+        });
+
+
+
     });
 
+
+
+    //
 </script>
 
 

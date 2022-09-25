@@ -439,7 +439,7 @@
                     </span>
             <br><br>
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary" style="margin: 0 auto">Ingresar</button>
+                <button id="btnIng" type="button" class="btn btn-primary" style="margin: 0 auto">Ingresar</button>
             </div>
         </form>
 
@@ -451,4 +451,27 @@
 </div>
 </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready()
+    {
+        $('#btnIng').click(function () {
+            console.log($('#exampleInputUser').val());
+            switch ($('#exampleInputUser').val()) {
+                case 'sup':
+                    location.replace('login/partes');
+                    break;
+                case 'admin':
+                    location.replace('login/users');
+                    break;
+                case 'cont':
+                    location.replace('login/consol');
+                    break;
+
+            }
+        });
+    }
+
+
+</script>
 </html>
