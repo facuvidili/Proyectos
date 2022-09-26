@@ -489,6 +489,7 @@
                     <br>
 
                     <button type="submit" class="btn btn-success">Confirmar</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
                 </form>
 
 

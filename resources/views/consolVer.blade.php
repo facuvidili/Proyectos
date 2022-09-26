@@ -483,7 +483,6 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
-//REMARCA CUADRILLA
 <script>$(document).ready(function () {
 
         $('#detalleConsol').html("<div class='mb-3' id='detalleConsol'></div>" +
@@ -518,7 +517,9 @@
             "<hr>" +
             "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
             "<hr>" +
-            "<li><h4><label>Total Compañía: $2.199.000</label></h4></li>" +
+            "<li><h4><label>Total Orden de Compra: $2.199.000</label></h4></li>" +
+            "<hr>" +
+            "<button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>" +
             "</ul>" +
             "<hr>" +
             "<hr>" +
@@ -550,10 +551,12 @@
             "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
 
             "<hr>" +
-            "<li><h4><label>Total Compañía: 2.199.000</label></h4></li>" +
+            "<li><h4><label>Total Orden de Compra: 2.199.000</label></h4></li>" +
+            "<hr>" +
+            "<button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>" +
             "<hr>" +
             "</ul>"+
-            "<button type='button' class='btn btn-lg btn-success'>Generar Ordenes de Compra</button></div>");
+            "</div>");
 
     });
    </script>

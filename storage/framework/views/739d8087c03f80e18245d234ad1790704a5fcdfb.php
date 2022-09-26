@@ -463,7 +463,7 @@
         <br/>
 
         <div>
-            <form id="idForm" method="get">
+            <form id="idForm" action="" method="get">
 
 
                     <div class="mb-3">
@@ -482,14 +482,15 @@
                                aria-describedby="inputHelp" placeholder="1800">
                     </div>
 
-                    <div class="mb-3>
+                    <div class="mb-3">
 
-                        <label class="form-check-label" for="exampleCheck1">Tiene Contrato: SI</form>
+                        <label class="form-check-label" for="exampleCheck1">Tiene Contrato: SI</label>
                     </div>
                     <br>
 
                     <button type="submit" class="btn btn-success">Confirmar</button>
-
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                </form>
 
 
                 </br>

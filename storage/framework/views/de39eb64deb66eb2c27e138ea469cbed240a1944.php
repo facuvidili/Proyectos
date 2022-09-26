@@ -622,8 +622,10 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
-//REMARCA CUADRILLA
-<script>$(document).ready(function () {
+
+<script>
+    //REMARCA CUADRILLA
+    $(document).ready(function () {
         $('#tableCuad tbody tr').click(function () {
             $(this).addClass('table-info').siblings().removeClass('table-info');
         });

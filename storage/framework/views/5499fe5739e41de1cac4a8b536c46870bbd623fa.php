@@ -421,18 +421,18 @@
 
 
     <div class="embed-responsive-item-16by9" style="max-width: 50%; margin: 0 auto">
-        <video src="../resources/videos/PARTESYS.mp4" autoplay style="border-radius: 70%"></video>
+        <video src="../resources/videos/PARTESYS.mp4" autoplay style="border-radius: 70%" muted></video>
     </div>
     <div class="form-group" style="margin: 0 auto; max-width: 30%; margin-top: 5%">
         <form action="partes">
             <div class="mb-3">
                 <label for="exampleInputUser" class="form-label">Usuario</label>
-                <input class="form-control" id="exampleInputUser">
+                <input class="form-control" id="exampleInputUser" required>
 
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="exampleInputPassword1" required>
             </div>
             <span id="passwordHelpInline" class="form-text">
                     Debe ser de un largo de 8-20 caracteres.
