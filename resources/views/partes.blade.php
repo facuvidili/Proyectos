@@ -463,14 +463,6 @@
                     </div>
 
 
-                {{--<select id="selectCuad" class="form-select" aria-label="Default select example">
-                    <option selected value="0">---</option>
-                    <option value="Cuadrilla ME-14">Cuadrilla ME-14</option>
-                    <option value="Cuadrilla DI-09">Cuadrilla DI-09</option>
-                    <option value="Cuadrilla PP-22">Cuadrilla PP-22</option>
-                    <option value="Cuadrilla LD-17">Cuadrilla LD-17</option>
-                    <option value="Cuadrilla ME-11">Cuadrilla ME-11</option>
-                </select>--}}
                 <table class="table table-hover" id="tableCuad">
                     <thead>
                     <tr>
@@ -529,8 +521,10 @@
 <script type="text/javascript" src="../../resources/js/calendar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
-//REMARCA CUADRILLA
-<script>$(document).ready(function (){
+
+<script>
+    //REMARCA CUADRILLA
+    $(document).ready(function (){
         $('#tableCuad tbody tr').click(function() {
             $(this).addClass('table-info').siblings().removeClass('table-info');
         });

@@ -453,9 +453,9 @@
         <br/>
 
 
-        <form style="max-width: 50%">
+        <form style="max-width: 55%">
             <div id="cuadr" class="mb-3">
-                <h3>Cuadrilla 1 - Precio Hora: $1600 - Contrato: No</h3>
+                <h3>Cuadrilla 1 - Precio Hora: $1600 - Cant Empleados: 8</h3>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlDate1">Fecha Inicio</label>
@@ -473,26 +473,36 @@
                 <label for="exampleFormControlHora2">Hora Fin</label>
                 <input type="time" class="form-control" id="exampleFormControlHora2" required>
             </div>
-            <div class="mb-3">
-                <h4><label>Total Parte </label></h4>
-                <label id="totalParte"> $25600</label>
-            </div>
+
+
+            <hr>
+
             <div class="mb-3">
                 <h6><label>HS Normales</label></h6>
-                <label id="totalParte"> $15600</label>
+                <label id="totalParte"> $156000</label>
             </div>
             <div class="mb-3">
                 <h6><label>HS 50%</label></h6>
-                <label id="totalParte"> $8000</label>
+                <label id="totalParte"> $80000</label>
             </div>
             <div class="mb-3">
                 <h6><label>HS 100%</label></h6>
-                <label id="totalParte"> $2000</label>
+                <label id="totalParte"> $20000</label>
             </div>
             <div class="mb-3">
                 <h6><label>Viandas</label></h6>
-                <label id="totalParte"> 8</label>
+                <label id="totalParte"> 8 - $24000 </label>
             </div>
+            
+            <hr>
+
+            <div class="mb-3">
+                <h4><label>Total Parte </label></h4>
+                <label id="totalParte"> $280000</label>
+            </div>
+
+            <hr>
+
             <div class="mb-3">
             <h3><label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label></h3>
                 <div class="input-group" style="max-width: 60%">

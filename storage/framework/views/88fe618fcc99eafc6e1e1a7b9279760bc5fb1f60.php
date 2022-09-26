@@ -519,7 +519,6 @@
                     </table>
                     <br>
                     <div class="mb-3" id="detalleConsol" style="max-width: 60%"></div>
-                    
 
 
 
