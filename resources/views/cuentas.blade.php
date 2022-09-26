@@ -400,7 +400,8 @@
     </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -470,8 +471,22 @@
         <div>
             <form id="idForm" action="partes/parteForm" method="get">
 
+                <h2><label for="selectCom" class="label-default">Seleccione una Compañía</label></h2>
 
-                <a href="cuentas/nueva" class="btn btn-success" role="button" style="float: right">Abrir Nueva Cuenta</a>
+                <select id='selectComp' class='form-select' aria-label='Default select example'
+                        style='max-width: 70%'>
+                    <option value='Gastos de Combustible'>YPF</option>
+                    <option value='Otros Descuentos'>Haley Burton</option>
+                    <option value='Otros Descuentos'>Backer Huges</option>
+
+                </select>
+
+
+                <hr>
+                <h2><label for="selectCuen" class="label-default">Seleccione una Cuenta</label></h2>
+
+                <a href="cuentas/nueva" class="btn btn-success" role="button" style="float: right">Abrir Nueva
+                    Cuenta</a>
 
 
                 <div class="input-group" style="max-width: 40%">
@@ -497,7 +512,8 @@
                         <td>$18000000</td>
                         <td>$18000000</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuentas/edit">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuentas/edit">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">1467</th>
@@ -505,7 +521,8 @@
                         <td>$2500000</td>
                         <td>$2500000</td>
                         <td>Si</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">18124</th>
@@ -513,7 +530,8 @@
                         <td>$12000000</td>
                         <td>$12000000</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">2351</th>
@@ -521,16 +539,14 @@
                         <td>$7000000</td>
                         <td>$7000000</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
                     </tr>
                     </tbody>
                 </table>
 
 
-
-
                 </br>
-
 
 
             </form>
@@ -542,9 +558,11 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script>$(document).ready(function (){
-        $('.btn-outline-danger').click(function (){
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+<script>$(document).ready(function () {
+        $('.btn-outline-danger').click(function () {
             confirm('Esta seguro que quiere eliminar la cuenta?');
         })
     })</script>
