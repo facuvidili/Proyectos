@@ -433,16 +433,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Consolidaciones</a>
+                            <a class="nav-link" href="../consol">Consolidaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cuentas">Cuentas</a>
+                            <a class="nav-link" href="../cuentas">Cuentas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contrato">Nuevo Contrato</a>
+                            <a class="nav-link" href="../contrato">Nuevo Contrato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="informe">Nuevo Infome</a>
+                            <a class="nav-link" href="../informe">Nuevo Infome</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
@@ -465,68 +465,76 @@
 
 
         <br/>
-        <h1 class="text-center">Consolidaciones</h1>
+        <h1 class="text-center">Nueva Consolidación</h1>
         <br/>
 
         <div>
-            <form id="idForm" action="partes/parteForm" method="get">
+            <form id="idForm" action="" method="get">
 
-                <div class="mb-3">
-                <a href="consol/nueva" class="btn btn-success" role="button" style="float: right">Generar Nueva Consolidación</a>
-                </div>
+                <form>
+                    <h2><label for="selectCuad" class="label-default">Seleccione una Cuadrilla</label></h2>
 
-                <div class="input-group" style="max-width: 40%">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </div>
+                    <div class="input-group" style="max-width: 40%">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="button">Search</button>
+                    </div>
 
 
-                <table class="table table-hover" id="tableCuad">
-                    <thead>
-                    <tr>
-                        <th scope="col">Nro</th>
-                        <th scope="col">Nro de Cuadrilla</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Total</th>
+                    {{--<select id="selectCuad" class="form-select" aria-label="Default select example">
+                        <option selected value="0">---</option>
+                        <option value="Cuadrilla ME-14">Cuadrilla ME-14</option>
+                        <option value="Cuadrilla DI-09">Cuadrilla DI-09</option>
+                        <option value="Cuadrilla PP-22">Cuadrilla PP-22</option>
+                        <option value="Cuadrilla LD-17">Cuadrilla LD-17</option>
+                        <option value="Cuadrilla ME-11">Cuadrilla ME-11</option>
+                    </select>--}}
+                    <table class="table table-hover" id="tableCuad">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nro</th>
+                            <th scope="col">Cant Empleados</th>
+                            <th scope="col">Precio Hora</th>
+                            <th scope="col">Contrato</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>8</td>
+                            <td>1800</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>7</td>
+                            <td>1300</td>
+                            <td>Si</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>4</td>
+                            <td>1500</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>12</td>
+                            <td>900</td>
+                            <td>No</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <div class="mb-3" id="detalleConsol" style="max-width: 60%"></div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">001452</th>
-                        <td>2</td>
-                        <td>07/2022</td>
-                        <td>$574900</td>
-                        <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">001342</th>
-                        <td>7</td>
-                        <td>06/2022</td>
-                        <td>$375600</td>
-                        <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
 
-                    </tr>
-                    <tr>
+                    <button type="submit" class="btn btn-success">Generar Consolidación</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                </form>
 
-                        <th scope="row">001900</th>
-                        <td>113</td>
-                        <td>05/2022</td>
-                        <td>$541700</td>
-                        <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
-                    </tr>
-                    <tr>
 
-                        <th scope="row">001123</th>
-                        <td>34</td>
-                        <td>04/2022</td>
-                        <td>$456700</td>
-                        <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-
+                </br>
 
 
             </form>
@@ -541,9 +549,137 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
-<script>$(document).ready(function () {
-        $('.btn-outline-danger').click(function () {
-            confirm('Esta seguro que quiere eliminar el usuario?');
-        })
+
+//REMARCA CUADRILLA
+<script>$(document).ready(function (){
+        $('#tableCuad tbody tr').click(function() {
+            $(this).addClass('table-info').siblings().removeClass('table-info');
+            $('#detalleConsol').html("<div class='mb-3' id='detalleConsol'></div>" +
+                "<h2>Cuadrilla Nro: 1</h2><br>" +
+                "<hr>"+
+                "<h3><label>Compañía1</label></h3>" +
+                "<hr>"+
+                "<ul>" +
+                "<li><h4><label>Cuenta: 1455</label></h4></li>"+
+                "<ul>" +
+                "<li><label>HsNormales: $324.000</label></li>" +
+                "<li><label>Hs50%: $235.000</label></li>" +
+                "<li><label>Hs100%: $375.000</label></li>" +
+                "<li><label>Viandas: $140.000</label></li>" +
+                "<hr>" +
+                "<div id='conceptos' >" +
+                "<div class='input-group'><select id='selectConcep' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Gastos de Combustible</option>" +
+                "<option value='Otro Gastos'>Otro Gastos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext</button></div>" +
+                "<div class='input-group'><select id='selectDesc' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Compra de Materiales</option>" +
+                "<option value='Otros Descuentos'>Otros Descuentos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
+                "</div>" +
+                "<hr>"+
+                "<li><h5><label>Total Cuenta: $1.074.000</label></h5></li></ul>" +
+                "<hr>"+
+                "<li><h4><label>Cuenta: 4234</label></h4></li>" +
+                "<ul>" +
+                "<li><label>HsNormales: $350.000</label></li>" +
+                "<li><label>Hs50%: $240.000</label></li>" +
+                "<li><label>Hs100%: $355.000</label></li>" +
+                "<li><label>Viandas: $180.000</label></li>" +
+                "<hr>" +
+                "<div id='conceptos' >" +
+                "<div class='input-group'><select id='selectConcep' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Gastos de Combustible</option>" +
+                "<option value='Otro Gastos'>Otro Gastos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext</button></div>" +
+                "<div class='input-group'><select id='selectDesc' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Compra de Materiales</option>" +
+                "<option value='Otros Descuentos'>Otros Descuentos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
+                "</div>" +
+                "<hr>"+
+                "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
+                "<hr>"+
+                "<li><h4><label>Total Compañía: $2.199.000</label></h4></li>" +
+                "</ul>" +
+                "<hr>" +
+                "<hr>" +
+                "<h3><label>Compañía2</label></h3>" +
+                "<hr>"+
+                "<ul>" +
+                "<li><h4><label>Cuenta: 1565</label></h4></li>" +
+                "<ul>" +
+                "<li><label>HsNormales: $324.000</label></li>" +
+                "<li><label>Hs50%: $235.000</label></li>" +
+                "<li><label>Hs100%: $375.000</label></li>" +
+                "<li><label>Viandas: $140.000</label></li>" +
+                "<hr>" +
+                "<div id='conceptos' >" +
+                "<div class='input-group'><select id='selectConcep' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Gastos de Combustible</option>" +
+                "<option value='Otro Gastos'>Otro Gastos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext</button></div>" +
+                "<div class='input-group'><select id='selectDesc' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Compra de Materiales</option>" +
+                "<option value='Otros Descuentos'>Otros Descuentos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
+                "</div>" +
+                "<hr>"+
+                "<li><h5><label>Total Cuenta: $1.074.000</label></h5></li></ul>" +
+                "<hr>"+
+                "<li><h4><label>Cuenta: 2546</label></h4></li>" +
+                "<ul>" +
+                "<li><label>HsNormales: $350.000</label></li>" +
+                "<li><label>Hs50%: $240.000</label></li>" +
+                "<li><label>Hs100%: $355.000</label></li>" +
+                "<li><label>Viandas: $180.000</label></li>" +
+                "<hr>" +
+                "<div id='conceptos' >" +
+                "<div class='input-group'><select id='selectConcep' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Gastos de Combustible</option>" +
+                "<option value='Otro Gastos'>Otro Gastos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext</button></div>" +
+                "<div class='input-group'><select id='selectDesc' class='form-select' aria-label='Default select example' style='max-width: 40%'>" +
+                "<option selected value='0'>---</option>" +
+                "<option value='Gastos de Combustible'>Compra de Materiales</option>" +
+                "<option value='Otros Descuentos'>Otros Descuentos</option>" +
+                "</select>" +
+                "<input type='number' class='form-control' placeholder='Valor'>" +
+                "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
+                "</div>" +
+                "<hr>"+
+                "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
+
+                "<hr>"+
+                "<li><h4><label>Total Compañía: 2.199.000</label></h4></li>" +
+                "<hr>"+
+                "</ul>");
+
+        });
+        $('.btn-info').click(function (){
+
+        });
     })</script>
+
 </html>

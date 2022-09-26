@@ -419,7 +419,7 @@
     @endif
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -459,7 +459,7 @@
 
                     <div class="input-group" style="max-width: 40%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="button">Search</button>
                     </div>
 
 
@@ -510,7 +510,7 @@
 
 
         </br>
-        <div id="calendar" style="color: darkslategray"></div>
+        <div id="calendar" style="color: darkslategray; max-width: 100%;"></div>
 
 
     </form>
@@ -528,9 +528,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/es.js"></script>
 <script type="text/javascript" src="../../resources/js/calendar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+//REMARCA CUADRILLA
 <script>$(document).ready(function (){
         $('#tableCuad tbody tr').click(function() {
-            $(this).addClass('bg-info').siblings().removeClass('bg-info');
+            $(this).addClass('table-info').siblings().removeClass('table-info');
         });
     })</script>
 </html>

@@ -419,7 +419,7 @@
     @endif
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
 
@@ -484,28 +484,28 @@
                         <td>8</td>
                         <td>1800</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuads/edit">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuads/edit">Editar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>7</td>
                         <td>1300</td>
                         <td>Si</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>4</td>
                         <td>1500</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>12</td>
                         <td>900</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
                     </tr>
                     </tbody>
                 </table>

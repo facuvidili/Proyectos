@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -399,45 +399,54 @@
         }
     </style>
 
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    <?php if(Route::has('login')): ?>
+    @if (Route::has('login'))
         <div class="fixed top-0 right-0 px-6 py-4 sm:block">
-            <?php if(auth()->guard()->check()): ?>
-                <a href="<?php echo e(url('/home')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            <?php else: ?>
-                <a href="<?php echo e(route('login')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            @auth
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                <?php if(Route::has('register')): ?>
-                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                <?php endif; ?>
-            <?php endif; ?>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                @endif
+            @endauth
         </div>
-    <?php endif; ?>
+    @endif
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="users">Usuarios</a>
+                            <a class="nav-link" href="consol">Consolidaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Cuadrillas</a>
+                            <a class="nav-link" href="cuentas">Cuentas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contrato">Nuevo Contrato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="informe">Nuevo Infome</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Administrador
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Contador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a href="../" class="dropdown-item">Cerrar Sesión</a></li>
@@ -450,17 +459,19 @@
                 </div>
 
 
-
             </div>
         </nav>
 
 
         <br/>
-        <h1 class="text-center">Cuadrillas</h1>
+        <h1 class="text-center">Cuentas</h1>
         <br/>
 
         <div>
             <form id="idForm" action="partes/parteForm" method="get">
+
+
+                <a href="cuentas/nueva" class="btn btn-success" role="button" style="float: right">Abrir Nueva Cuenta</a>
 
 
                 <div class="input-group" style="max-width: 40%">
@@ -472,43 +483,49 @@
                 <table class="table table-hover" id="tableCuad">
                     <thead>
                     <tr>
-                        <th scope="col">Nro</th>
-                        <th scope="col">Cant Empleados</th>
-                        <th scope="col">Precio Hora</th>
-                        <th scope="col">Contrato</th>
+                        <th scope="col">NroCuenta</th>
+                        <th scope="col">Sector</th>
+                        <th scope="col">Presupuesto</th>
+                        <th scope="col">Disponible</th>
+                        <th scope="col">Deficitaria</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>8</td>
-                        <td>1800</td>
+                        <th scope="row">1253</th>
+                        <td>Mantenimiento Edilicio</td>
+                        <td>$18000000</td>
+                        <td>$18000000</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuads/edit">Editar</a></td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuentas/edit">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>7</td>
-                        <td>1300</td>
+                        <th scope="row">1467</th>
+                        <td>Limpieza</td>
+                        <td>$2500000</td>
+                        <td>$2500000</td>
                         <td>Si</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td>4</td>
-                        <td>1500</td>
+                        <th scope="row">18124</th>
+                        <td>Mecánica Automotriz</td>
+                        <td>$12000000</td>
+                        <td>$12000000</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
                     </tr>
                     <tr>
-                        <th scope="row">4</th>
-                        <td>12</td>
-                        <td>900</td>
+                        <th scope="row">2351</th>
+                        <td>Comunicaciones</td>
+                        <td>$7000000</td>
+                        <td>$7000000</td>
                         <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
                     </tr>
                     </tbody>
                 </table>
+
 
 
 
@@ -528,8 +545,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script>$(document).ready(function (){
         $('.btn-outline-danger').click(function (){
-            confirm('Esta seguro que quiere eliminar la cuadrilla?');
+            confirm('Esta seguro que quiere eliminar la cuenta?');
         })
     })</script>
 </html>
-<?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/cuads.blade.php ENDPATH**/ ?>

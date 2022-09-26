@@ -400,12 +400,13 @@
     </style>
 
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     @if (Route::has('login'))
-        <div class="fixed top-0 right-0 px-6 py-4 sm:block">
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
                 <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
             @else
@@ -419,11 +420,13 @@
     @endif
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -436,7 +439,8 @@
                             <a class="nav-link" href="cuads">Cuadrillas</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
                                 Administrador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -450,7 +454,6 @@
                 </div>
 
 
-
             </div>
         </nav>
 
@@ -461,7 +464,7 @@
 
         <div>
             <form id="idForm" action="partes/parteForm" method="get">
-
+                <a href="users/nuevo" class="btn btn-success" role="button" style="float: right">Nuevo Usuario</a>
 
                 <div class="input-group" style="max-width: 40%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
@@ -490,7 +493,8 @@
                         <td>Administrador</td>
                         <td>facuvidili4387@gmail.com</td>
                         <td>297419243</td>
-                        <td><a href="users/edit" class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" id="elim" role="button">Eliminar</a> </td>
+                        <td><a href="users/edit" class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" id="elim" role="button">Eliminar</a></td>
 
                     </tr>
                     <tr>
@@ -500,7 +504,8 @@
                         <td>Supervisor</td>
                         <td>lucamartin@gmail.com</td>
                         <td>297649299</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
 
                     </tr>
                     <tr>
@@ -510,7 +515,8 @@
                         <td>Administrador</td>
                         <td>nabil@gmail.com</td>
                         <td>297436218</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
@@ -519,14 +525,14 @@
                         <td>Contador</td>
                         <td>kaniix@gmail.com</td>
                         <td>297465845</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a class="btn btn-sm btn-outline-danger" role="button">Eliminar</a> </td>
+                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a> | <a
+                                class="btn btn-sm btn-outline-danger" role="button">Eliminar</a></td>
                     </tr>
                     </tbody>
                 </table>
 
 
                 </br>
-
 
 
             </form>
@@ -538,10 +544,12 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script>$(document).ready(function (){
-    $('.btn-outline-danger').click(function (){
-        confirm('Esta seguro que quiere eliminar el usuario?');
-    })
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+<script>$(document).ready(function () {
+        $('.btn-outline-danger').click(function () {
+            confirm('Esta seguro que quiere eliminar el usuario?');
+        })
     })</script>
 </html>

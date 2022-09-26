@@ -420,7 +420,7 @@
     @endif
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
 
@@ -465,7 +465,7 @@
         <div>
             <form id="idForm" action="" method="get">
 
-                <form>
+
                     <div class="mb-3">
                         <label for="exampleInput1" class="form-label">Numero</label>
                         <input type="text" class="form-control" id="exampleInput1" aria-describedby="inputHelp" placeholder="1">
@@ -482,11 +482,11 @@
                                aria-describedby="inputHelp" placeholder="1800">
                     </div>
 
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" name="flexRadioDefault" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Tiene Contrato</label>
-                    </div>
+                    <div class="mb-3">
 
+                        <label class="form-check-label" for="exampleCheck1">Tiene Contrato: SI</label>
+                    </div>
+                    <br>
 
                     <button type="submit" class="btn btn-success">Confirmar</button>
                 </form>

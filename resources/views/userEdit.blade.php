@@ -420,7 +420,7 @@
     @endif
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
 
@@ -512,6 +512,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-success">Confirmar</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
                 </form>
 
 

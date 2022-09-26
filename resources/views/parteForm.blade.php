@@ -419,7 +419,7 @@
     @endif
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-ligh bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -478,8 +478,24 @@
                 <label id="totalParte"> $25600</label>
             </div>
             <div class="mb-3">
+                <h6><label>HS Normales</label></h6>
+                <label id="totalParte"> $15600</label>
+            </div>
+            <div class="mb-3">
+                <h6><label>HS 50%</label></h6>
+                <label id="totalParte"> $8000</label>
+            </div>
+            <div class="mb-3">
+                <h6><label>HS 100%</label></h6>
+                <label id="totalParte"> $2000</label>
+            </div>
+            <div class="mb-3">
+                <h6><label>Viandas</label></h6>
+                <label id="totalParte"> 8</label>
+            </div>
+            <div class="mb-3">
             <h3><label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label></h3>
-                <div class="input-group" style="max-width: 40%">
+                <div class="input-group" style="max-width: 60%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
@@ -490,6 +506,7 @@
                         <th scope="col">Sector</th>
                         <th scope="col">Presupuesto</th>
                         <th scope="col">Disponible</th>
+                        <th scope="col">Deficitaria</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -498,24 +515,29 @@
                         <td>Mantenimiento Edilicio</td>
                         <td>$18000000</td>
                         <td>$18000000</td>
+                        <td>No</td>
+
                     </tr>
                     <tr>
                         <th scope="row">1467</th>
                         <td>Limpieza</td>
                         <td>$2500000</td>
                         <td>$2500000</td>
+                        <td>Si</td>
                     </tr>
                     <tr>
                         <th scope="row">18124</th>
                         <td>Mecánica Automotriz</td>
                         <td>$12000000</td>
                         <td>$12000000</td>
+                        <td>No</td>
                     </tr>
                     <tr>
                         <th scope="row">2351</th>
                         <td>Comunicaciones</td>
                         <td>$7000000</td>
                         <td>$7000000</td>
+                        <td>No</td>
                     </tr>
                     </tbody>
                 </table>
@@ -595,7 +617,7 @@
 
         //SELECCIONA CUADRILLA
         $('#tableCuad tbody tr').click(function() {
-            $(this).addClass('bg-info').siblings().removeClass('bg-info');
+            $(this).addClass('table-info').siblings().removeClass('table-info');
         });
 
 

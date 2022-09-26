@@ -46,11 +46,35 @@ Route::get('login/cuads/edit', function () {
 Route::get('login/users/edit', function () {
     return view('userEdit');
 });
-
+Route::get('login/users/nuevo', function () {
+    return view('userNuevo');
+});
 //CONTADOR
 Route::get('login/consol', function () {
     return view('consol');
 });
+Route::get('login/consol/nueva', function () {
+    return view('consolNueva');
+});
+Route::get('login/consol/ver', function () {
+    return view('consolVer');
+});
+Route::get('login/cuentas', function () {
+    return view('cuentas');
+});
+Route::get('login/contrato', function () {
+    return view('contratoNuevo');
+});
+Route::get('login/informe', function () {
+    return view('informe');
+});
+Route::get('login/cuentas/edit', function () {
+    return view('cuentaEdit');
+});
+Route::get('login/cuentas/nueva', function () {
+    return view('cuentaNueva');
+});
+
 
 
 

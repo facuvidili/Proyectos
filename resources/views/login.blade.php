@@ -421,7 +421,7 @@
 
 
     <div class="embed-responsive-item-16by9" style="max-width: 50%; margin: 0 auto">
-        <video src="../resources/videos/PARTESYS.mp4" autoplay style="border-radius: 60%"></video>
+        <video src="../resources/videos/PARTESYS.mp4" autoplay style="border-radius: 70%"></video>
     </div>
     <div class="form-group" style="margin: 0 auto; max-width: 30%; margin-top: 5%">
         <form action="partes">

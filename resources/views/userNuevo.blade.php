@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -399,48 +399,52 @@
         }
     </style>
 
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    <?php if(Route::has('login')): ?>
+    @if (Route::has('login'))
         <div class="fixed top-0 right-0 px-6 py-4 sm:block">
-            <?php if(auth()->guard()->check()): ?>
-                <a href="<?php echo e(url('/home')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            <?php else: ?>
-                <a href="<?php echo e(route('login')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            @auth
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                <?php if(Route::has('register')): ?>
-                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                <?php endif; ?>
-            <?php endif; ?>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                @endif
+            @endauth
         </div>
-    <?php endif; ?>
+    @endif
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="users">Usuarios</a>
+                            <a class="nav-link" href="../users">Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Cuadrillas</a>
+                            <a class="nav-link" href="../cuads">Cuadrillas</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
                                 Administrador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="../" class="dropdown-item">Cerrar Sesión</a></li>
+                                <li><a href="../.." class="dropdown-item">Cerrar Sesión</a></li>
                             </ul>
                         </li>
 
@@ -450,70 +454,69 @@
                 </div>
 
 
-
             </div>
         </nav>
 
 
         <br/>
-        <h1 class="text-center">Cuadrillas</h1>
+        <h1 class="text-center">Nuevo Usuario</h1>
         <br/>
 
         <div>
-            <form id="idForm" action="partes/parteForm" method="get">
+            <form id="idForm" action="" method="get">
 
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInput1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInput1" aria-describedby="inputHelp" placeholder="">
+                        <div id="inputHelp" class="form-text" >Nombres si son más de uno</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInput2" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="exampleInput2" aria-describedby="inputHelp" placeholder="">
+                        <div id="inputHelp" class="form-text">Apellidos si son más de uno</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInput3" class="form-label">Teléfono</label>
+                        <input type="number" min="110000000" max="3999999999" class="form-control" id="exampleInput3"
+                               aria-describedby="inputHelp" placeholder="">
+                        <div id="inputHelp" class="form-text">Celular de contacto</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="">
+                        <div id="emailHelp" class="form-text">No compartiremos tu email</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Reingresar Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="">
+                    </div>
+                    <div class="mb-3 form-check">
+                       <h3>Tipo de Usuario</h3>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="radio" class="form-check-input" name="flexRadioDefault" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Supervisor</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="radio" class="form-check-input" name="flexRadioDefault" id="exampleCheck2">
+                        <label class="form-check-label" for="exampleCheck2">Contador</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="radio" class="form-check-input" name="flexRadioDefault" id="exampleCheck3">
+                        <label class="form-check-label" for="exampleCheck3" >Administrador</label>
+                    </div>
 
-                <div class="input-group" style="max-width: 40%">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </div>
-
-
-                <table class="table table-hover" id="tableCuad">
-                    <thead>
-                    <tr>
-                        <th scope="col">Nro</th>
-                        <th scope="col">Cant Empleados</th>
-                        <th scope="col">Precio Hora</th>
-                        <th scope="col">Contrato</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>8</td>
-                        <td>1800</td>
-                        <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button" href="cuads/edit">Editar</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>7</td>
-                        <td>1300</td>
-                        <td>Si</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>4</td>
-                        <td>1500</td>
-                        <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>12</td>
-                        <td>900</td>
-                        <td>No</td>
-                        <td><a class="btn btn-sm btn-outline-info" role="button">Editar</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-
+                    <button type="submit" class="btn btn-success">Confirmar</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                </form>
 
 
                 </br>
-
 
 
             </form>
@@ -525,11 +528,8 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script>$(document).ready(function (){
-        $('.btn-outline-danger').click(function (){
-            confirm('Esta seguro que quiere eliminar la cuadrilla?');
-        })
-    })</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
 </html>
-<?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/cuads.blade.php ENDPATH**/ ?>
