@@ -479,15 +479,6 @@
                         <button class="btn btn-outline-success" type="button">Search</button>
                     </div>
 
-
-                    {{--<select id="selectCuad" class="form-select" aria-label="Default select example">
-                        <option selected value="0">---</option>
-                        <option value="Cuadrilla ME-14">Cuadrilla ME-14</option>
-                        <option value="Cuadrilla DI-09">Cuadrilla DI-09</option>
-                        <option value="Cuadrilla PP-22">Cuadrilla PP-22</option>
-                        <option value="Cuadrilla LD-17">Cuadrilla LD-17</option>
-                        <option value="Cuadrilla ME-11">Cuadrilla ME-11</option>
-                    </select>--}}
                     <table class="table table-hover" id="tableCuad">
                         <thead>
                         <tr>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -399,25 +399,25 @@
         }
     </style>
 
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    <?php if(Route::has('login')): ?>
+    @if (Route::has('login'))
         <div class="fixed top-0 right-0 px-6 py-4 sm:block">
-            <?php if(auth()->guard()->check()): ?>
-                <a href="<?php echo e(url('/home')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            <?php else: ?>
-                <a href="<?php echo e(route('login')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            @auth
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                <?php if(Route::has('register')): ?>
-                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                <?php endif; ?>
-            <?php endif; ?>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                @endif
+            @endauth
         </div>
-    <?php endif; ?>
+    @endif
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -433,16 +433,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="consol">Consolidaciones</a>
+                            <a class="nav-link" href="../consol">Consolidaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cuentas">Cuentas</a>
+                            <a class="nav-link" href="../cuentas">Cuentas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contrato">Nuevo Contrato</a>
+                            <a class="nav-link" href="../contrato">Nuevo Contrato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="informe">Nuevo Infome</a>
+                            <a class="nav-link" href="../informe">Nuevo Infome</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
@@ -465,37 +465,38 @@
 
 
         <br/>
-        <h1 class="text-center">Nuevo Informe</h1>
+        <h1 class="text-center">Informe de Desvío Presupuestario</h1>
         <br/>
 
         <div>
             <form id="idForm" action="" method="get" style="max-width: 50%">
-                <h2><label for="selectCuen" class="label-default">Seleccione una Compañía</label></h2>
 
-                <select id='selectComp' class='form-select' aria-label='Default select example'
-                        style='max-width: 70%' multiple>
-                    <option value='YPF'>YPF</option>
-                    <option value='HalliBurton'>HalliBurton</option>
-                    <option value='Backer Huge'>Baker Hughes</option>
+                <h5><label for="exampleFormControlDate1">Fecha</label></h5>
+                <label for="exampleFormControlDate1">30/09/2022</label>
 
-                </select>
-                Ctrl+Click multiple
                 <hr>
 
-                <div class="mb-3">
-                    <label for="exampleFormControlDate1">Fecha Inicio</label>
-                    <input type="date" class="form-control" id="exampleFormControlDate1" max="" required>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlDate2">Fecha Fin</label>
-                    <input type="date" class="form-control" id="exampleFormControlDate2" max="" required>
-                </div>
+                <h5><label for="exampleFormControlComp">Compañía</label></h5>
+                <label>Baker Hughes</label>
 
-                <a href="informe/nuevo"><button type="button" class="btn btn-success">Generar Informe</button></a>
-                <button type="submit" class="btn btn-danger">Cancelar</button>
+                <hr>
+
+                <h5><label for="exampleFormControlDate1">Meses</label></h5>
+                <label for="exampleFormControlDate1">03/2022</label> |
+                <label for="exampleFormControlDate1">04/2022</label> |
+                <label for="exampleFormControlDate1">05/2022</label>
 
 
-                </br>
+
+               <div id="detalleConsol">
+               </div>
+
+                <hr>
+
+
+                <button type="submit" class="btn btn-success">Imprimir/Generar PDF</button>
+
+                <hr>
 
 
             </form>
@@ -511,12 +512,87 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
-//REMARCA CUADRILLA
+
 <script>$(document).ready(function () {
-        $('#tableCuad tbody tr').click(function () {
-            $(this).addClass('table-info').siblings().removeClass('table-info');
-        });
-    })</script>
+
+        $('#detalleConsol').html("<div class='mb-3' id='detalleConsol'></div>" +
+            "<hr>" +
+            "<ul>" +
+            "<li><h5><label>Cuenta: 1455</label></h5></li>" +
+            "<ul>" +
+            "<li><label>HsNormales: $324.000</label></li>" +
+            "<li><label>Hs50%: $235.000</label></li>" +
+            "<li><label>Hs100%: $375.000</label></li>" +
+            "<li><label>Viandas: $140.000</label></li>" +
+            "<hr>" +
+            "<div id='conceptos' >" +
+            "<li><label>Gasto de Combustible: $375.000</label></li>" +
+            "<li><label>Adelanto de Viandas: $-140.000</label></li>" +
+            "</div>" +
+            "<hr>" +
+            "<li><h6><label>Total Cuenta: $1.074.000</label></h6></li>" +
+            "<hr>" +
+            "<li><h6><label>Presupuesto: $1.000.000</label></h6></li>" +
+            "<li><h6><label>Saldo Disponible: $0</label></h6></li>" +
+            "<li><h6><label>Desvío Presupuestario: $74000</label></h6></li></ul>" +
+            "<hr>" +
+            "<li><h5><label>Cuenta: 4234</label></h5></li>" +
+            "<ul>" +
+            "<li><label>HsNormales: $350.000</label></li>" +
+            "<li><label>Hs50%: $240.000</label></li>" +
+            "<li><label>Hs100%: $355.000</label></li>" +
+            "<li><label>Viandas: $180.000</label></li>" +
+            "<hr>" +
+            "<div id='conceptos' >" +
+            "</div>" +
+            "<hr>" +
+            "<li><h6><label>Total Cuenta: $1.125.000</label></h6></li>" +
+            "<hr>" +
+            "<li><h6><label>Presupuesto: $2.000.000</label></h6></li>" +
+            "<li><h6><label>Saldo Disponible: $875.000</label></h6></li>" +
+            "<li><h6><label>Desvío Presupuestario: $0</label></h6></li></ul>" +
+            "</ul>" +
+            "<hr>" +
+            "<ul>" +
+            "<li><h5><label>Cuenta: 1565</label></h5></li>" +
+            "<ul>" +
+            "<li><label>HsNormales: $324.000</label></li>" +
+            "<li><label>Hs50%: $235.000</label></li>" +
+            "<li><label>Hs100%: $375.000</label></li>" +
+            "<li><label>Viandas: $140.000</label></li>" +
+            "<hr>" +
+            "<div id='conceptos' >" +
+            "</div>" +
+            "<hr>" +
+            "<li><h6><label>Total Cuenta: $1.074.000</label></h6></li>" +
+            "<hr>" +
+            "<li><h6><label>Presupuesto: $1.000.000</label></h6></li>" +
+            "<li><h6><label>Saldo Disponible: $0</label></h6></li>" +
+            "<li><h6><label>Desvío Presupuestario: $74000</label></h6></li></ul>" +
+            "<hr>" +
+            "<li><h5><label>Cuenta: 2546</label></h5></li>" +
+            "<ul>" +
+            "<li><label>HsNormales: $350.000</label></li>" +
+            "<li><label>Hs50%: $240.000</label></li>" +
+            "<li><label>Hs100%: $355.000</label></li>" +
+            "<li><label>Viandas: $180.000</label></li>" +
+            "<hr>" +
+            "<div id='conceptos' >" +
+            "</div>" +
+            "<hr>" +
+            "<li><h6><label>Total Cuenta: $1.125.000</label></h6></li>" +
+            "<hr>" +
+            "<li><h6><label>Presupuesto: $2.000.000</label></h6></li>" +
+            "<li><h6><label>Saldo Disponible: $875.000</label></h6></li>" +
+            "<li><h6><label>Desvío Presupuestario: $0</label></h6></li></ul>" +
+            "</ul>"+
+            "</div>");
+
+    });
+</script>
+{{---Presupuesto: $
+-Saldo Disponible: $
+-Saldo Reservado: $
+-Desvío presupuestario: $--}}
 
 </html>
-<?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/informe.blade.php ENDPATH**/ ?>

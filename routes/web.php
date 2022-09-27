@@ -68,6 +68,9 @@ Route::get('login/contrato', function () {
 Route::get('login/informe', function () {
     return view('informe');
 });
+Route::get('login/informe/nuevo', function () {
+    return view('impInforme');
+});
 Route::get('login/cuentas/edit', function () {
     return view('cuentaEdit');
 });

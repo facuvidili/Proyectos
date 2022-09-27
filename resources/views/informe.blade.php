@@ -474,9 +474,9 @@
 
                 <select id='selectComp' class='form-select' aria-label='Default select example'
                         style='max-width: 70%' multiple>
-                    <option value='Gastos de Combustible'>YPF</option>
-                    <option value='Otros Descuentos'>Haley Burton</option>
-                    <option value='Otros Descuentos'>Backer Huges</option>
+                    <option value='YPF'>YPF</option>
+                    <option value='HalliBurton'>HalliBurton</option>
+                    <option value='Backer Huge'>Baker Hughes</option>
 
                 </select>
                 Ctrl+Click multiple
@@ -491,7 +491,7 @@
                     <input type="date" class="form-control" id="exampleFormControlDate2" max="" required>
                 </div>
 
-                <button type="submit" class="btn btn-success">Generar Informe</button>
+                <a href="informe/nuevo"><button type="button" class="btn btn-success">Generar Informe</button></a>
                 <button type="submit" class="btn btn-danger">Cancelar</button>
 
 
