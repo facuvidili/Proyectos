@@ -450,7 +450,7 @@
                                 Contador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="../" class="dropdown-item">Cerrar Sesión</a></li>
+                                <li><a href="../.." class="dropdown-item">Cerrar Sesión</a></li>
                             </ul>
                         </li>
 
@@ -476,11 +476,9 @@
 
                     <div class="input-group" style="max-width: 40%">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-success" type="button">Search</button>
+                        <button class="btn btn-outline-success" type="button">Buscar</button>
                     </div>
 
-
-                    
                     <table class="table table-hover" id="tableCuad">
                         <thead>
                         <tr>
@@ -518,12 +516,11 @@
                         </tbody>
                     </table>
                     <br>
-                    <div class="mb-3" id="detalleConsol" style="max-width: 60%"></div>
 
 
+                    <a class="btn btn-primary" href="nueva/detalle" role="button">Siguiente</a>
 
-                    <button type="submit" class="btn btn-success">Generar Consolidación</button>
-                    <button type="submit" class="btn btn-danger">Cancelar</button>
+
                 </form>
 
 
@@ -543,18 +540,19 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
-//REMARCA CUADRILLA
+
 <script>$(document).ready(function (){
         $('#tableCuad tbody tr').click(function() {
             $(this).addClass('table-info').siblings().removeClass('table-info');
-            $('#detalleConsol').html("<div class='mb-3' id='detalleConsol'></div>" +
+            $('#detalleConsol').html(
                 "<h2>Cuadrilla Nro: 1</h2><br>" +
                 "<hr>"+
                 "<h3><label>Compañía1</label></h3>" +
                 "<hr>"+
                 "<ul>" +
-                "<li><h4><label>Cuenta: 1455</label></h4></li>"+
+                "<li><h4><label class='dropdown-toggle' data-bs-toggle='collapse' data-bs-target='#cuenta1455' aria-expanded='false' aria-controls='cuenta1455'>Cuenta: 1455</label></h4></li>"+
                 "<ul>" +
+                "<div class='collapse' id='cuenta1455'>" +
                 "<li><label>HsNormales: $324.000</label></li>" +
                 "<li><label>Hs50%: $235.000</label></li>" +
                 "<li><label>Hs100%: $375.000</label></li>" +
@@ -577,10 +575,12 @@
                 "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
                 "</div>" +
                 "<hr>"+
+                "</div>" +
                 "<li><h5><label>Total Cuenta: $1.074.000</label></h5></li></ul>" +
                 "<hr>"+
-                "<li><h4><label>Cuenta: 4234</label></h4></li>" +
+                "<li><h4><label class='dropdown-toggle' data-bs-toggle='collapse' data-bs-target='#cuenta4234' aria-expanded='false' aria-controls='cuenta4234'>Cuenta: 4234</label></h4></li>" +
                 "<ul>" +
+                "<div class='collapse' id='cuenta4234'>" +
                 "<li><label>HsNormales: $350.000</label></li>" +
                 "<li><label>Hs50%: $240.000</label></li>" +
                 "<li><label>Hs100%: $355.000</label></li>" +
@@ -603,6 +603,7 @@
                 "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
                 "</div>" +
                 "<hr>"+
+                "</div>" +
                 "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
                 "<hr>"+
                 "<li><h4><label>Total Compañía: $2.199.000</label></h4></li>" +
@@ -612,8 +613,9 @@
                 "<h3><label>Compañía2</label></h3>" +
                 "<hr>"+
                 "<ul>" +
-                "<li><h4><label>Cuenta: 1565</label></h4></li>" +
+                "<li><h4><label class='dropdown-toggle' data-bs-toggle='collapse' data-bs-target='#cuenta1565' aria-expanded='false' aria-controls='cuenta1565'>Cuenta: 1565</label></h4></li>" +
                 "<ul>" +
+                "<div class='collapse' id='cuenta1565'>" +
                 "<li><label>HsNormales: $324.000</label></li>" +
                 "<li><label>Hs50%: $235.000</label></li>" +
                 "<li><label>Hs100%: $375.000</label></li>" +
@@ -636,10 +638,12 @@
                 "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
                 "</div>" +
                 "<hr>"+
+                "</div>" +
                 "<li><h5><label>Total Cuenta: $1.074.000</label></h5></li></ul>" +
                 "<hr>"+
-                "<li><h4><label>Cuenta: 2546</label></h4></li>" +
+                "<li><h4><label class='dropdown-toggle' data-bs-toggle='collapse' data-bs-target='#cuenta2546' aria-expanded='false' aria-controls='cuenta2546'>Cuenta: 2546</label></h4></li>" +
                 "<ul>" +
+                "<div class='collapse' id='cuenta2546'>" +
                 "<li><label>HsNormales: $350.000</label></li>" +
                 "<li><label>Hs50%: $240.000</label></li>" +
                 "<li><label>Hs100%: $355.000</label></li>" +
@@ -662,6 +666,7 @@
                 "<button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento</button></div>" +
                 "</div>" +
                 "<hr>"+
+                "</div>" +
                 "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
 
                 "<hr>"+

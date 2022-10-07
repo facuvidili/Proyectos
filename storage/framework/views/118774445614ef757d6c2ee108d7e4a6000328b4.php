@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -399,25 +399,25 @@
         }
     </style>
 
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    @if (Route::has('login'))
+    <?php if(Route::has('login')): ?>
         <div class="fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            <?php if(auth()->guard()->check()): ?>
+                <a href="<?php echo e(url('/home')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            <?php else: ?>
+                <a href="<?php echo e(route('login')); ?>" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-            @endauth
+                <?php if(Route::has('register')): ?>
+                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
-    @endif
+    <?php endif; ?>
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -433,16 +433,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="../consol">Consolidaciones</a>
+                            <a class="nav-link" href="../../consol">Consolidaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../cuentas">Cuentas</a>
+                            <a class="nav-link" href="../../cuentas">Cuentas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../contrato">Nuevo Contrato</a>
+                            <a class="nav-link" href="../../contrato">Nuevo Contrato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../informe">Nuevo Infome</a>
+                            <a class="nav-link" href="../../informe">Nuevo Infome</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
@@ -450,7 +450,7 @@
                                 Contador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="../.." class="dropdown-item">Cerrar Sesión</a></li>
+                                <li><a href="../../.." class="dropdown-item">Cerrar Sesión</a></li>
                             </ul>
                         </li>
 
@@ -465,7 +465,7 @@
 
 
         <br/>
-        <h1 class="text-center">Consolidación Nro 001452</h1>
+        <h1 class="text-center">Nueva Consolidación</h1>
         <br/>
 
         <div>
@@ -478,6 +478,7 @@
                 <div class="row">
                     <div class="col md:border-l">
                         <h3><label>Compañía1</label></h3>
+
 
 
                         <ul>
@@ -501,11 +502,57 @@
 
                                     <hr>
 
+                                    <div id='conceptos'>
+
+                                        <div class='input-group'><select id='selectConcep' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Gastos de Combustible</option>
+
+                                                <option value='Otro Gastos'>Otro Gastos</option>
+
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext
+                                            </button>
+                                        </div>
+
+                                        <div class='input-group'><select id='selectDesc' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Compra de Materiales</option>
+
+
+                                                <option value='Otros Descuentos'>Otros Descuentos</option>
+
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento
+                                            </button>
+                                        </div>
+
+
+                                    </div>
+
+
+
+
 
                                 </div>
 
                                 <li><h5><label>Total Cuenta: $1.074.000</label></h5></li>
                             </ul>
+
+
+
 
 
                             <li><h4><label class='dropdown-toggle' data-bs-toggle='collapse'
@@ -524,11 +571,42 @@
 
                                     <li><label>Viandas: $180.000</label></li>
 
-                                    <li><label>Gasto de Combustible: $375.000</label></li>
-
-                                    <li><label>Compra de Materiales: $-140.000</label></li>
-
                                     <hr>
+                                    <div id='conceptos'>
+
+                                        <div class='input-group'><select id='selectConcep' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Gastos de Combustible</option>
+
+                                                <option value='Otro Gastos'>Otro Gastos</option>
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext
+                                            </button>
+                                        </div>
+
+                                        <div class='input-group'><select id='selectDesc' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Compra de Materiales</option>
+
+                                                <option value='Otros Descuentos'>Otros Descuentos</option>
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento
+                                            </button>
+                                        </div>
+
+                                    </div>
+
 
 
                                 </div>
@@ -537,14 +615,17 @@
                             </ul>
 
 
-                            <li><h4><label>Total Orden de Compra: $2.199.000</label></h4></li>
-                            <button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>
+
+                            <li><h4><label>Total Compañía: $2.199.000</label></h4></li>
+
                         </ul>
+
 
 
                     </div>
                     <div class="col md:border-l">
                         <h3><label>Compañía2</label></h3>
+
 
 
                         <ul>
@@ -567,13 +648,49 @@
 
 
                                     <hr>
+                                    <div id='conceptos'>
+
+                                        <div class='input-group'><select id='selectConcep' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Gastos de Combustible</option>
+
+                                                <option value='Otro Gastos'>Otro Gastos</option>
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext
+                                            </button>
+                                        </div>
+
+                                        <div class='input-group'><select id='selectDesc' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Compra de Materiales</option>
+
+                                                <option value='Otros Descuentos'>Otros Descuentos</option>
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento
+                                            </button>
+                                        </div>
+
+                                    </div>
+
 
 
                                 </div>
 
                                 <li><h5><label>Total Cuenta: $1.074.000</label></h5></li>
-
                             </ul>
+
 
 
                             <li><h4><label class='dropdown-toggle' data-bs-toggle='collapse'
@@ -593,23 +710,57 @@
 
                                     <li><label>Viandas: $180.000</label></li>
 
-                                    <li><label>Gasto de Combustible: $422.000</label></li>
-
-                                    <li><label>Compra de Materiales: $-230.000</label></li>
 
                                     <hr>
+                                    <div id='conceptos'>
+
+                                        <div class='input-group'><select id='selectConcep' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>"
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Gastos de Combustible</option>
+
+                                                <option value='Otro Gastos'>Otro Gastos</option>
+
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-info'>Agregar Concepto Ext
+                                            </button>
+                                        </div>
+
+                                        <div class='input-group'><select id='selectDesc' class='form-select'
+                                                                         aria-label='Default select example'
+                                                                         style='max-width: 40%'>
+
+                                                <option selected value='0'>---</option>
+
+                                                <option value='Gastos de Combustible'>Compra de Materiales</option>
+
+                                                <option value='Otros Descuentos'>Otros Descuentos</option>
+                                            </select>
+                                            <input type='number' class='form-control' placeholder='Valor'>
+
+                                            <button type='button' class='btn btn-sm btn-warning'>Aplicar Descuento
+                                            </button>
+                                        </div>
+
+                                    </div>
+
 
 
                                 </div>
 
                                 <li><h5><label>Total Cuenta: $1.125.000</label></h5></li>
-
-
                             </ul>
 
 
-                            <li><h4><label>Total Orden de Compra: $2.199.000</label></h4></li>
-                            <button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>
+
+                            <li><h4><label>Total Compañía: 2.199.000</label></h4></li>
+
+
 
                         </ul>
 
@@ -622,12 +773,16 @@
             <hr>
 
 
+            <a class="btn btn-primary" href="../nueva" role="button">Anterior</a>
+
+            <button type="submit" class="btn btn-success">Generar Consolidación</button>
+            <button type="submit" class="btn btn-danger">Cancelar</button>
+
+
             </br>
 
 
         </div>
-
-
     </div>
 
 </div>
@@ -641,4 +796,6 @@
 
 
 
+
 </html>
+<?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/consolNuevaDetalle.blade.php ENDPATH**/ ?>

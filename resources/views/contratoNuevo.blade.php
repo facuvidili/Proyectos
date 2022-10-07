@@ -468,8 +468,8 @@
         <h1 class="text-center">Nuevo Contrato</h1>
         <br/>
 
-        <div>
-            <form id="idForm" action="" method="get" style="max-width: 50%">
+        <div style="max-width: 40%">
+
                 <div class="mb-3">
                     <label for="exampleFormControlDate1">Fecha Inicio</label>
                     <input type="date" class="form-control" id="exampleFormControlDate1" max="2022-09-30" required>
@@ -483,133 +483,181 @@
                     <input type="number" class="form-control" id="exampleFormControlNumber" min="1" required>$AR
                 </div>
 
-                <h4><label for="total" class="label-default">Monto Total: </label></h4>
 
+                <h4><label for="total" class="label-default">Monto Total: $12.433.600</label></h4>
                 <hr>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Siguiente
+                </button>
 
-                <h2><label for="selectCuen" class="label-default">Seleccione una Compañía</label></h2>
 
-                <select id='selectComp' class='form-select' aria-label='Default select example'
-                        style='max-width: 40%'>
-                    <option selected value='0'>---</option>
-                    <option value='Gastos de Combustible'>YPF</option>
-                    <option value='Otros Descuentos'>Haley Burton</option>
-                    <option value='Otros Descuentos'>Backer Huges</option>
-                </select>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title fs-5" id="selectComp"><label for="selectComp"
+                                                                                    class="label-default">Seleccione
+                                        una Compañía</label></h2>
+                            </div>
+                            <div class="modal-body">
+                                <select id='selectComp' class='form-select' aria-label='Default select example'
+                                        style='max-width: 40%'>
+                                    <option selected value='0'>---</option>
+                                    <option value='Gastos de Combustible'>YPF</option>
+                                    <option value='Otros Descuentos'>Haley Burton</option>
+                                    <option value='Otros Descuentos'>Backer Huges</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
 
-                <hr>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">Anterior
+                                </button>
+                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                        data-bs-toggle="modal">Siguiente
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                     aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered" style="max-width: fit-content" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2><label for="selectCuen" class="label-default">Seleccione una Cuenta</label></h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group">
+                                    <input class="form-control me-2" type="search" placeholder="Buscar"
+                                           aria-label="Buscar">
+                                    <button class="btn btn-outline-success" type="button">Buscar</button>
+                                </div>
 
-                <h2><label for="selectCuen" class="label-default">Seleccione una Cuenta</label></h2>
+                                <table class="table table-hover" id="tableCuad">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">NroCuenta</th>
+                                        <th scope="col">Sector</th>
+                                        <th scope="col">Presupuesto</th>
+                                        <th scope="col">Disponible</th>
+                                        <th scope="col">Deficitaria</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1253</th>
+                                        <td>Mantenimiento Edilicio</td>
+                                        <td>$18000000</td>
+                                        <td>$18000000</td>
+                                        <td>No</td>
 
-                <div class="input-group" style="max-width: 40%">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1467</th>
+                                        <td>Limpieza</td>
+                                        <td>$2500000</td>
+                                        <td>$2500000</td>
+                                        <td>Si</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">18124</th>
+                                        <td>Mecánica Automotriz</td>
+                                        <td>$12000000</td>
+                                        <td>$12000000</td>
+                                        <td>No</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2351</th>
+                                        <td>Comunicaciones</td>
+                                        <td>$7000000</td>
+                                        <td>$7000000</td>
+                                        <td>No</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-target="#exampleModal" data-bs-toggle="modal">Anterior</button>
+                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle3"
+                                        data-bs-toggle="modal">Siguiente
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <table class="table table-hover" id="tableCuad">
-                    <thead>
-                    <tr>
-                        <th scope="col">NroCuenta</th>
-                        <th scope="col">Sector</th>
-                        <th scope="col">Presupuesto</th>
-                        <th scope="col">Disponible</th>
-                        <th scope="col">Deficitaria</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1253</th>
-                        <td>Mantenimiento Edilicio</td>
-                        <td>$18000000</td>
-                        <td>$18000000</td>
-                        <td>No</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">1467</th>
-                        <td>Limpieza</td>
-                        <td>$2500000</td>
-                        <td>$2500000</td>
-                        <td>Si</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">18124</th>
-                        <td>Mecánica Automotriz</td>
-                        <td>$12000000</td>
-                        <td>$12000000</td>
-                        <td>No</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">2351</th>
-                        <td>Comunicaciones</td>
-                        <td>$7000000</td>
-                        <td>$7000000</td>
-                        <td>No</td>
-
-                    </tr>
-                    </tbody>
-                </table>
 
 
-                </br>
+                <div class="modal fade" id="exampleModalToggle3" aria-hidden="true"
+                     aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2><label for="selectCuad" class="label-default">Seleccione una Cuadrilla</label></h2>
+                            </div>
+                            <div class="modal-body">
 
-                <h2><label for="selectCuad" class="label-default">Seleccione una Cuadrilla</label></h2>
 
-                <div class="input-group" style="max-width: 40%">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="button">Search</button>
+                                <div class="input-group">
+                                    <input class="form-control me-2" type="search" placeholder="Buscar"
+                                           aria-label="Buscar">
+                                    <button class="btn btn-outline-success" type="button">Buscar</button>
+                                </div>
+
+                                <table class="table table-hover" id="tableCuad">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Nro</th>
+                                        <th scope="col">Cant Empleados</th>
+                                        <th scope="col">Precio Hora</th>
+                                        <th scope="col">Contrato</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>8</td>
+                                        <td>1800</td>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>7</td>
+                                        <td>1300</td>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>4</td>
+                                        <td>1500</td>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>12</td>
+                                        <td>900</td>
+                                        <td>No</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Anterior</button>
+                                <button type="submit" class="btn btn-success">Generar Contrato</button>
+                                <button type="submit" class="btn btn-danger">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <table class="table table-hover" id="tableCuad">
-                    <thead>
-                    <tr>
-                        <th scope="col">Nro</th>
-                        <th scope="col">Cant Empleados</th>
-                        <th scope="col">Precio Hora</th>
-                        <th scope="col">Contrato</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>8</td>
-                        <td>1800</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>7</td>
-                        <td>1300</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>4</td>
-                        <td>1500</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>12</td>
-                        <td>900</td>
-                        <td>No</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br>
-                <div class="mb-3" id="detalleConsol" style="max-width: 60%"></div>
 
 
-                <button type="submit" class="btn btn-success">Generar Contrato</button>
-                <button type="submit" class="btn btn-danger">Cancelar</button>
-
-
-                </br>
-
-
-            </form>
         </div>
     </div>
 

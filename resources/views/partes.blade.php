@@ -459,7 +459,7 @@
 
                     <div class="input-group" style="max-width: 40%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="button">Search</button>
+                    <button class="btn btn-outline-success" type="button">Buscar</button>
                     </div>
 
 
@@ -502,7 +502,25 @@
 
 
         </br>
-        <div id="calendar" style="color: darkslategray; max-width: 100%;"></div>
+                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Seleccionar Día</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="calendar" style="color: darkslategray; max-width: 100%;"></div>
+                            </div>
+                            <div class="modal-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Seleccionar Día</a>
+
 
 
     </form>

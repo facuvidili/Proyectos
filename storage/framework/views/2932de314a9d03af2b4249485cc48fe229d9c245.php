@@ -450,7 +450,7 @@
                                 Contador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="../" class="dropdown-item">Cerrar Sesión</a></li>
+                                <li><a href="../.." class="dropdown-item">Cerrar Sesión</a></li>
                             </ul>
                         </li>
 
@@ -468,8 +468,164 @@
         <h1 class="text-center">Consolidación Nro 001452</h1>
         <br/>
 
+        <div>
 
-        <div class="mb-3" id="detalleConsol" style="max-width: 60%"></div>
+            <h2 class="text-center">Cuadrilla Nro: 1</h2><br>
+
+            <hr>
+
+            <div class="container sm:text-left">
+                <div class="row">
+                    <div class="col md:border-l">
+                        <h3><label>Compañía1</label></h3>
+
+
+                        <ul>
+
+                            <li><h4><label class='dropdown-toggle' data-bs-toggle='collapse'
+                                           data-bs-target='#cuenta1455'
+                                           aria-expanded='false' aria-controls='cuenta1455'>Cuenta: 1455</label></h4>
+                            </li>
+
+                            <ul>
+
+                                <div class='collapse' id='cuenta1455'>
+
+                                    <li><label>HsNormales: $324.000</label></li>
+
+                                    <li><label>Hs50%: $235.000</label></li>
+
+                                    <li><label>Hs100%: $375.000</label></li>
+
+                                    <li><label>Viandas: $140.000</label></li>
+
+                                    <hr>
+
+
+                                </div>
+
+                                <li><h5><label>Total Cuenta: $1.074.000</label></h5></li>
+                            </ul>
+
+
+                            <li><h4><label class='dropdown-toggle' data-bs-toggle='collapse'
+                                           data-bs-target='#cuenta4234'
+                                           aria-expanded='false' aria-controls='cuenta4234'>Cuenta: 4234</label></h4>
+                            </li>
+
+                            <ul>
+                                <div class='collapse' id='cuenta4234'>
+
+                                    <li><label>HsNormales: $350.000</label></li>
+
+                                    <li><label>Hs50%: $240.000</label></li>
+
+                                    <li><label>Hs100%: $355.000</label></li>
+
+                                    <li><label>Viandas: $180.000</label></li>
+
+                                    <li><label>Gasto de Combustible: $375.000</label></li>
+
+                                    <li><label>Compra de Materiales: $-140.000</label></li>
+
+                                    <hr>
+
+
+                                </div>
+
+                                <li><h5><label>Total Cuenta: $1.125.000</label></h5></li>
+                            </ul>
+
+
+                            <li><h4><label>Total Orden de Compra: $2.199.000</label></h4></li>
+                            <button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>
+                        </ul>
+
+
+                    </div>
+                    <div class="col md:border-l">
+                        <h3><label>Compañía2</label></h3>
+
+
+                        <ul>
+
+                            <li><h4><label class='dropdown-toggle' data-bs-toggle='collapse'
+                                           data-bs-target='#cuenta1565'
+                                           aria-expanded='false' aria-controls='cuenta1565'>Cuenta: 1565</label></h4>
+                            </li>
+
+                            <ul>
+                                <div class='collapse' id='cuenta1565'>
+
+                                    <li><label>HsNormales: $324.000</label></li>
+
+                                    <li><label>Hs50%: $235.000</label></li>
+
+                                    <li><label>Hs100%: $375.000</label></li>
+
+                                    <li><label>Viandas: $140.000</label></li>
+
+
+                                    <hr>
+
+
+                                </div>
+
+                                <li><h5><label>Total Cuenta: $1.074.000</label></h5></li>
+
+                            </ul>
+
+
+                            <li><h4><label class='dropdown-toggle' data-bs-toggle='collapse'
+                                           data-bs-target='#cuenta2546'
+                                           aria-expanded='false' aria-controls='cuenta2546'>Cuenta: 2546</label></h4>
+                            </li>
+
+                            <ul>
+
+                                <div class='collapse' id='cuenta2546'>
+
+                                    <li><label>HsNormales: $350.000</label></li>
+
+                                    <li><label>Hs50%: $240.000</label></li>
+
+                                    <li><label>Hs100%: $355.000</label></li>
+
+                                    <li><label>Viandas: $180.000</label></li>
+
+                                    <li><label>Gasto de Combustible: $422.000</label></li>
+
+                                    <li><label>Compra de Materiales: $-230.000</label></li>
+
+                                    <hr>
+
+
+                                </div>
+
+                                <li><h5><label>Total Cuenta: $1.125.000</label></h5></li>
+
+
+                            </ul>
+
+
+                            <li><h4><label>Total Orden de Compra: $2.199.000</label></h4></li>
+                            <button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <hr>
+
+
+            </br>
+
+
+        </div>
 
 
     </div>
@@ -483,83 +639,7 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
-<script>$(document).ready(function () {
 
-        $('#detalleConsol').html("<div class='mb-3' id='detalleConsol'></div>" +
-            "<h2>Cuadrilla Nro: 1</h2><br>" +
-            "<hr>" +
-            "<h3><label>Compañía1</label></h3>" +
-            "<hr>" +
-            "<ul>" +
-            "<li><h4><label>Cuenta: 1455</label></h4></li>" +
-            "<ul>" +
-            "<li><label>HsNormales: $324.000</label></li>" +
-            "<li><label>Hs50%: $235.000</label></li>" +
-            "<li><label>Hs100%: $375.000</label></li>" +
-            "<li><label>Viandas: $140.000</label></li>" +
-            "<hr>" +
-            "<div id='conceptos' >" +
-            "<li><label>Gasto de Combustible: $375.000</label></li>" +
-            "<li><label>Compra de Materiales: $-140.000</label></li>" +
-            "</div>" +
-            "<hr>" +
-            "<li><h5><label>Total Cuenta: $1.074.000</label></h5></li></ul>" +
-            "<hr>" +
-            "<li><h4><label>Cuenta: 4234</label></h4></li>" +
-            "<ul>" +
-            "<li><label>HsNormales: $350.000</label></li>" +
-            "<li><label>Hs50%: $240.000</label></li>" +
-            "<li><label>Hs100%: $355.000</label></li>" +
-            "<li><label>Viandas: $180.000</label></li>" +
-            "<hr>" +
-            "<div id='conceptos' >" +
-            "</div>" +
-            "<hr>" +
-            "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
-            "<hr>" +
-            "<li><h4><label>Total Orden de Compra: $2.199.000</label></h4></li>" +
-            "<hr>" +
-            "<button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>" +
-            "</ul>" +
-            "<hr>" +
-            "<hr>" +
-            "<h3><label>Compañía2</label></h3>" +
-            "<hr>" +
-            "<ul>" +
-            "<li><h4><label>Cuenta: 1565</label></h4></li>" +
-            "<ul>" +
-            "<li><label>HsNormales: $324.000</label></li>" +
-            "<li><label>Hs50%: $235.000</label></li>" +
-            "<li><label>Hs100%: $375.000</label></li>" +
-            "<li><label>Viandas: $140.000</label></li>" +
-            "<hr>" +
-            "<div id='conceptos' >" +
-            "</div>" +
-            "<hr>" +
-            "<li><h5><label>Total Cuenta: $1.074.000</label></h5></li></ul>" +
-            "<hr>" +
-            "<li><h4><label>Cuenta: 2546</label></h4></li>" +
-            "<ul>" +
-            "<li><label>HsNormales: $350.000</label></li>" +
-            "<li><label>Hs50%: $240.000</label></li>" +
-            "<li><label>Hs100%: $355.000</label></li>" +
-            "<li><label>Viandas: $180.000</label></li>" +
-            "<hr>" +
-            "<div id='conceptos' >" +
-            "</div>" +
-            "<hr>" +
-            "<li><h5><label>Total Cuenta: $1.125.000</label></h5></li></ul>" +
-
-            "<hr>" +
-            "<li><h4><label>Total Orden de Compra: 2.199.000</label></h4></li>" +
-            "<hr>" +
-            "<button type='button' class='btn btn-lg btn-success'>Generar Orden de Compra</button>" +
-            "<hr>" +
-            "</ul>"+
-            "</div>");
-
-    });
-   </script>
 
 </html>
 <?php /**PATH C:\xampp\htdocs\Proyectos\partesys\resources\views/consolVer.blade.php ENDPATH**/ ?>

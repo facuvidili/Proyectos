@@ -469,12 +469,12 @@
                     <div class="mb-3">
                         <label for="exampleInput1" class="form-label">Numero</label>
                         <input type="text" class="form-control" id="exampleInput1" aria-describedby="inputHelp" placeholder="1">
-                        <div id="inputHelp" class="form-text" >Nombres si son más de uno</div>
+                        <div id="inputHelp" class="form-text" >Número de la cuadrilla</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInput2" class="form-label">Cantidad Empleados</label>
                         <input type="text" class="form-control" id="exampleInput2" aria-describedby="inputHelp" placeholder="8">
-                        <div id="inputHelp" class="form-text">Apellidos si son más de uno</div>
+                        <div id="inputHelp" class="form-text"></div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInput3" class="form-label">Precio Hora</label>

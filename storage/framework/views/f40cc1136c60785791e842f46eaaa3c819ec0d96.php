@@ -398,9 +398,16 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    <style>
+        .fechas{
+            max-width: 40%;
+        }
+    </style>
+
 
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -422,7 +429,9 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand">PARTESYS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -430,7 +439,8 @@
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
                                 Supervisor
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -444,152 +454,237 @@
                 </div>
 
 
-
             </div>
         </nav>
 
         <br/>
         <h1 class="text-center">Ingresar Parte de Trabajo</h1>
         <br/>
+        <div id="cuadr" class="mb-3 text-center">
+            <h3>Cuadrilla 1 - Precio Hora: $1600 - Cant Empleados: 8</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col" style="max-width: 60%">
 
 
-        <form style="max-width: 55%">
-            <div id="cuadr" class="mb-3">
-                <h3>Cuadrilla 1 - Precio Hora: $1600 - Cant Empleados: 8</h3>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlDate1">Fecha Inicio</label>
-                <input type="date" class="form-control" id="exampleFormControlDate1" max="2022-09-30" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlHora1">Hora Inicio</label>
-                <input type="time" class="form-control" id="exampleFormControlHora1" min="08:00" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlDate2" id="fechaFin">Fecha Fin</label>
-                <input type="date" class="form-control" id="exampleFormControlDate2" max="2022-10-01" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlHora2">Hora Fin</label>
-                <input type="time" class="form-control" id="exampleFormControlHora2" required>
-            </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlDate1">Fecha Inicio</label>
+                            <input type="date" class="form-control fechas" id="exampleFormControlDate1" max="2022-09-30"
+                                   required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlHora1">Hora Inicio</label>
+                            <input type="time" class="form-control fechas" id="exampleFormControlHora1" min="08:00" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlDate2" id="fechaFin">Fecha Fin</label>
+                            <input type="date" class="form-control fechas" id="exampleFormControlDate2" max="2022-10-01"
+                                   required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlHora2">Hora Fin</label>
+                            <input type="time" class="form-control fechas" id="exampleFormControlHora2" required>
+                        </div>
 
-
-            <hr>
-
-            <div class="mb-3">
-                <h6><label>HS Normales</label></h6>
-                <label id="totalParte"> $156000</label>
-            </div>
-            <div class="mb-3">
-                <h6><label>HS 50%</label></h6>
-                <label id="totalParte"> $80000</label>
-            </div>
-            <div class="mb-3">
-                <h6><label>HS 100%</label></h6>
-                <label id="totalParte"> $20000</label>
-            </div>
-            <div class="mb-3">
-                <h6><label>Viandas</label></h6>
-                <label id="totalParte"> 8 - $24000 </label>
-            </div>
-            
-            <hr>
-
-            <div class="mb-3">
-                <h4><label>Total Parte </label></h4>
-                <label id="totalParte"> $280000</label>
-            </div>
-
-            <hr>
-
-            <div class="mb-3">
-            <h3><label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label></h3>
-                <div class="input-group" style="max-width: 60%">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
-                <table class="table table-hover" id="tableCuad">
-                    <thead>
-                    <tr>
-                        <th scope="col">NroCuenta</th>
-                        <th scope="col">Sector</th>
-                        <th scope="col">Presupuesto</th>
-                        <th scope="col">Disponible</th>
-                        <th scope="col">Deficitaria</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1253</th>
-                        <td>Mantenimiento Edilicio</td>
-                        <td>$18000000</td>
-                        <td>$18000000</td>
-                        <td>No</td>
+                <div class="col" style="max-width: 40%; padding: 5% 0% 5% 0%">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <h6><label>HS Normales</label></h6>
+                            </td>
+                            <td>
+                                <label id="totalParte"> $156000</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6><label>HS 50%</label></h6>
+                            </td>
+                            <td>
+                                <label id="totalParte"> $80000</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6><label>HS 100%</label></h6>
+                            </td>
+                            <td>
+                                <label id="totalParte"> $20000</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6><label>Viandas</label></h6>
+                            </td>
+                            <td>
+                                <label id="totalParte"> 8 - $24000 </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><label>Total Parte </label></h4>
+                            </td>
+                            <td>
+                                <label id="totalParte"> $280000</label>
+                            </td>
+                        </tr>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">1467</th>
-                        <td>Limpieza</td>
-                        <td>$2500000</td>
-                        <td>$2500000</td>
-                        <td>Si</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18124</th>
-                        <td>Mecánica Automotriz</td>
-                        <td>$12000000</td>
-                        <td>$12000000</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2351</th>
-                        <td>Comunicaciones</td>
-                        <td>$7000000</td>
-                        <td>$7000000</td>
-                        <td>No</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="mb-3">
-                <h4><label class="col-form-label">TAREAS</label></h4>
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="col-form-label" >Descripción</label>
-                <input class="form-control" id="descTarea">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="col-form-label" >Duración Aproximada (HS)</label>
-                <input type="number" class="form-control" id="durTarea">
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
-            <div class="mb-3">
-                <button type="button" class="btn btn-primary" id="agregarTarea">Agregar Tarea</button>
-            </div>
-
-            <div >
-                <h4><label class="col-form-label">Tareas Agregadas</label></h4>
-            </div>
-            <div class="mb-3">
-                <ul class="list-group" id="tareasAgregadas">
-
-                </ul>
-            </div>
-
-            <br><br>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Observación</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-            </div>
-            <div class="mb-3">
-                <button type="button" class="btn btn-success" id="agregarTarea">Confirmar Parte</button>
-                <button type="button" class="btn btn-danger" id="agregarTarea">Cancelar Parte</button>
-            </div>
+        </div>
 
 
-        </form>
+        <hr>
+
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: fit-content">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><label for="exampleFormControlSelect2" class="col-form-label">Elija una Cuenta</label></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+
+                            <div class="input-group">
+                                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                                <button class="btn btn-outline-success" type="button">Buscar</button>
+                            </div>
+                            <table class="table table-hover" id="tableCuad">
+                                <thead>
+                                <tr>
+                                    <th scope="col">NroCuenta</th>
+                                    <th scope="col">Sector</th>
+                                    <th scope="col">Presupuesto</th>
+                                    <th scope="col">Disponible</th>
+                                    <th scope="col">Deficitaria</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1253</th>
+                                    <td>Mantenimiento Edilicio</td>
+                                    <td>$18000000</td>
+                                    <td>$18000000</td>
+                                    <td>No</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">1467</th>
+                                    <td>Limpieza</td>
+                                    <td>$2500000</td>
+                                    <td>$2500000</td>
+                                    <td>Si</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">18124</th>
+                                    <td>Mecánica Automotriz</td>
+                                    <td>$12000000</td>
+                                    <td>$12000000</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2351</th>
+                                    <td>Comunicaciones</td>
+                                    <td>$7000000</td>
+                                    <td>$7000000</td>
+                                    <td>No</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">
+                            Anterior
+                        </button>
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                           Siguiente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><label class="col-form-label">TAREAS</label></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="col-form-label">Descripción</label>
+                            <input class="form-control" id="descTarea">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="col-form-label">Duración Aproximada
+                                (HS)</label>
+                            <input type="number" class="form-control" id="durTarea">
+
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-success" id="agregarTarea">Agregar Tarea</button>
+                        </div>
+
+                        <div>
+                            <h4><label class="col-form-label">Tareas Agregadas</label></h4>
+                        </div>
+                        <div class="mb-3">
+                            <ul class="list-group" id="tareasAgregadas">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Anterior</button>
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">
+                            Siguiente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><label for="exampleFormControlTextarea1" class="form-label">Observación</label></h3>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="mb-3">
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                Anterior
+                            </button>
+                            <button type="button" class="btn btn-success" id="agregarTarea">Confirmar Parte</button>
+                            <button type="button" class="btn btn-danger" id="agregarTarea">Cancelar Parte</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Siguiente</a>
+
+
+        <br><br>
+
+
+
 
     </div>
 
@@ -607,33 +702,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/es.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 <script type="text/javascript">
 
 
-    $(document).ready(function (){
+    $(document).ready(function () {
 
         //AGREGA TAREAS A LA LISTA
-       $('#agregarTarea').click(function (){
-           /* console.log($('#descTarea').val()+"-"+ $('#durTarea').val());*/
-            $('#tareasAgregadas').append('<div class="input-group" id="'+$('#durTarea').val()+'"><li class="list-group-item">'+$('#descTarea').val()+" - "+ $('#durTarea').val()+'HS</li><button type="button" class="btn btn-outline-danger" id="borrarTarea">X</button></div>')
+        $('#agregarTarea').click(function () {
+            /* console.log($('#descTarea').val()+"-"+ $('#durTarea').val());*/
+            $('#tareasAgregadas').append('<div class="input-group" id="' + $('#durTarea').val() + '"><li class="list-group-item">' + $('#descTarea').val() + " - " + $('#durTarea').val() + 'HS</li><button type="button" class="btn btn-outline-danger" id="borrarTarea">X</button></div>')
 
-       });
-       //BORRA TAREAS DE LA LISTA
-        $('#tareasAgregadas').on('click','#borrarTarea', function (){
-           //console.log($(this).parent());
-           $(this).parent().remove();
-       });
+        });
+        //BORRA TAREAS DE LA LISTA
+        $('#tareasAgregadas').on('click', '#borrarTarea', function (e) {
+            //console.log($(this).parent());
+
+            $(this).closest('div').remove();
+            e.preventDefault();
+            e.stopPropagation();
+
+
+        });
 
         //SELECCIONA CUADRILLA
-        $('#tableCuad tbody tr').click(function() {
+        $('#tableCuad tbody tr').click(function () {
             $(this).addClass('table-info').siblings().removeClass('table-info');
         });
 
 
-
     });
-
 
 
     //

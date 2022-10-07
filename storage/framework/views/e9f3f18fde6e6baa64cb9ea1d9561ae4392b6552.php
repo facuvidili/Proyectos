@@ -450,7 +450,7 @@
                                 Contador
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="../" class="dropdown-item">Cerrar Sesión</a></li>
+                                <li><a href="../.." class="dropdown-item">Cerrar Sesión</a></li>
                             </ul>
                         </li>
 
@@ -467,7 +467,7 @@
         <br/>
         <h1 class="text-center">Nueva Cuenta</h1>
         <br/>
-
+        <h3><label>Compañía: YPF</label></h3>
         <div>
             <form id="idForm" action="" method="get">
 

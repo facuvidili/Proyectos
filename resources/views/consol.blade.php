@@ -477,7 +477,7 @@
 
                 <div class="input-group" style="max-width: 40%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="button">Buscar</button>
                 </div>
 
 
@@ -486,6 +486,7 @@
                     <tr>
                         <th scope="col">Nro</th>
                         <th scope="col">Nro de Cuadrilla</th>
+                        <th scope="col">Compañía</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Total</th>
 
@@ -495,16 +496,18 @@
                     <tr>
                         <th scope="row">001452</th>
                         <td>2</td>
+                        <td>YPF</td>
                         <td>07/2022</td>
-                        <td>$574900</td>
+                        <td>$574.900</td>
                         <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
 
                     </tr>
                     <tr>
                         <th scope="row">001342</th>
                         <td>7</td>
+                        <td>HalliBurton</td>
                         <td>06/2022</td>
-                        <td>$375600</td>
+                        <td>$375.600</td>
                         <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
 
                     </tr>
@@ -512,16 +515,18 @@
 
                         <th scope="row">001900</th>
                         <td>113</td>
+                        <td>YPF</td>
                         <td>05/2022</td>
-                        <td>$541700</td>
+                        <td>$541.700</td>
                         <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
                     </tr>
                     <tr>
 
                         <th scope="row">001123</th>
                         <td>34</td>
+                        <td>Baker Huges</td>
                         <td>04/2022</td>
-                        <td>$456700</td>
+                        <td>$456.700</td>
                         <td><a href="consol/ver" class="btn btn-sm btn-outline-info" role="button">Consultar</a></td>
                     </tr>
                     </tbody>

@@ -475,9 +475,10 @@
 
                 <select id='selectComp' class='form-select' aria-label='Default select example'
                         style='max-width: 70%'>
-                    <option value='Gastos de Combustible'>YPF</option>
-                    <option value='Otros Descuentos'>Haley Burton</option>
-                    <option value='Otros Descuentos'>Backer Huges</option>
+                    <option value='0'>---</option>
+                    <option value='YPF'>YPF</option>
+                    <option value='HalliBurton'>HalliBurton</option>
+                    <option value='Backer Huge'>Baker Hughes</option>
 
                 </select>
 
@@ -491,7 +492,7 @@
 
                 <div class="input-group" style="max-width: 40%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="button">Buscar</button>
                 </div>
 
 

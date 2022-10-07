@@ -56,6 +56,9 @@ Route::get('login/consol', function () {
 Route::get('login/consol/nueva', function () {
     return view('consolNueva');
 });
+Route::get('login/consol/nueva/detalle', function () {
+    return view('consolNuevaDetalle');
+});
 Route::get('login/consol/ver', function () {
     return view('consolVer');
 });

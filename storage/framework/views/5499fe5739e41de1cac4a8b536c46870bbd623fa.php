@@ -435,7 +435,6 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" required>
             </div>
             <span id="passwordHelpInline" class="form-text">
-                    Debe ser de un largo de 8-20 caracteres.
                     </span>
             <br><br>
             <div class="mb-3">
@@ -456,7 +455,7 @@
     $(document).ready()
     {
         $('#btnIng').click(function () {
-            console.log($('#exampleInputUser').val());
+            //console.log($('#exampleInputUser').val());
             switch ($('#exampleInputUser').val()) {
                 case 'sup':
                     location.replace('login/partes');
@@ -469,7 +468,14 @@
                     break;
 
             }
+
         });
+        $('input').bind('keypress', function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13) { //Enter keycode
+            $('#btnIng').click();
+        }
+    });
     }
 
 

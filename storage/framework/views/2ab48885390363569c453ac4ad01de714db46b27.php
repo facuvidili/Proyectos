@@ -489,7 +489,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" aria-describedby="passHelp">
+                        <div id="epassHelp" class="form-text"> Debe ser de un largo de 8-20 caracteres</div>
+
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword2" class="form-label">Reingresar Password</label>

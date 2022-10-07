@@ -468,7 +468,7 @@
 
                 <div class="input-group" style="max-width: 40%">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="button">Buscar</button>
                 </div>
 
 
